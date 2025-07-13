@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "concurrently": "^7.6.0",
+    "serve": "14.2.4"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css",
+    "watch": "npx tailwindcss -c tailwind.config.js -i ./src/input.css -o ./src/output.css --watch",
+    "serve": "serve public",
+    "dev": "concurrently \"npm run build\" \"npm run watch\" \"npm run serve\""
+  }
+}
