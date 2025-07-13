@@ -11,7 +11,7 @@
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
-    --color-white: #fff;
+    --color-white: hsl(0, 0%, 100%);
     --spacing: 0.25rem;
     --container-sm: 24rem;
     --container-md: 28rem;
@@ -31,6 +31,10 @@
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-bright-red: hsl(12, 88%, 59%);
+    --color-bright-red-light: hsl(12, 88%, 69%);
+    --color-dark-grayish-blue: hsl(227, 12%, 61%);
+    --color-grayish-blue: hsl(227, 12%, 61%);
   }
 }
 @layer base {
@@ -190,6 +194,9 @@
   }
   .container {
     width: 100%;
+    @media (width >= 1536px) {
+      max-width: 1536px;
+    }
     @media (width >= 40rem) {
       max-width: 40rem;
     }
@@ -201,9 +208,6 @@
     }
     @media (width >= 80rem) {
       max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
     }
   }
   .mx-auto {
@@ -337,10 +341,19 @@
     border-top-left-radius: calc(infinity * 1px);
     border-bottom-left-radius: calc(infinity * 1px);
   }
-  .bg-gray-500 {
-    background-color: var(--color-gray-500);
+  .bg-\[color\:var\(--brightRed\)\] {
+    background-color: var(--brightRed);
   }
-  .bg-white {
+  .bg-\[color\:var\(--color-bright-red\)\] {
+    background-color: var(--color-bright-red);
+  }
+  .bg-\[color\:var\(--color-bright-red-light\)\] {
+    background-color: var(--color-bright-red-light);
+  }
+  .bg-\[color\:var\(--color-grayish-blue\)\] {
+    background-color: var(--color-grayish-blue);
+  }
+  .bg-\[color\:var\(--color-white\)\] {
     background-color: var(--color-white);
   }
   .p-3 {
@@ -396,11 +409,14 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .text-\[color\:var\(--color-dark-grayish-blue\)\] {
+    color: var(--color-dark-grayish-blue);
+  }
+  .text-\[color\:var\(--color-white\)\] {
+    color: var(--color-white);
+  }
   .text-black {
     color: var(--color-black);
-  }
-  .text-red-500 {
-    color: var(--color-red-500);
   }
   .text-white {
     color: var(--color-white);
@@ -421,6 +437,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-200);
+      }
+    }
+  }
+  .hover\:text-\[color\:var\(--color-dark-grayish-blue\)\] {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-dark-grayish-blue);
       }
     }
   }
